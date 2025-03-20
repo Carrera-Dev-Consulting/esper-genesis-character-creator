@@ -1,6 +1,6 @@
 import os
-from typing import Annotated, Optional, Type, TypeVar
-from fastapi import Body, Depends, FastAPI, Form, HTTPException, Request, Response
+from typing import Type, TypeVar
+from fastapi import Depends, FastAPI, HTTPException, Request
 from importlib.metadata import version
 
 from fastapi.responses import JSONResponse, RedirectResponse
@@ -212,7 +212,7 @@ def login(request: Request):
 
 @fastapi_app.post("/login")
 async def login(request: Request, login_request: LoginCreds = form_or_json(LoginCreds)):
-    if not login_request.password:
+    if not login_request.password or login_request.password == "failure":
         raise HTTPException(status_code=401, detail="Invalid Credentials")
     session = uuid4()
     data = AppSession(

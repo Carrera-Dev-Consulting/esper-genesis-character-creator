@@ -51,7 +51,7 @@ Issues = "https://github.com/carrera-dev-consulting/esper-genesis-character-crea
 Changelog = "https://github.com/carrera-dev-consulting/esper-genesis-character-creator/releases"
 
 [project.scripts]
-esper-character-gen = "esper_character_gen.app:main"
+espie-character-gen = "espie_character_gen.app:main"
 
 [tool.pdm]
 version = { source = "scm", tag_regex = "^(\\d+\\.){2}\\d+$" }
