@@ -13,8 +13,8 @@ on:
     types: [published]
 
 env:
-  IMAGE_NAME: gxldcptrick/zombie-nomnom-api:${{ github.event.release.tag_name }}
-  LATEST_IMAGE_NAME: gxldcptrick/zombie-nomnom-api:latest
+  IMAGE_NAME: gxldcptrick/espie-character-gen:${{ github.event.release.tag_name }}
+  LATEST_IMAGE_NAME: gxldcptrick/espie-character-gen:latest
 
 permissions:
   contents: read
@@ -57,7 +57,7 @@ jobs:
           draft: true
           labels: automated,docs
           branch: updated-changelog-${{ github.event.release.tag_name }}
-          title: 'chore(changelog): Updating Changelog for version ${{ github.event.release.tag_name }}'
+          title: "chore(changelog): Updating Changelog for version ${{ github.event.release.tag_name }}"
   publish-docker:
     runs-on: ubuntu-latest
     steps:
@@ -72,11 +72,11 @@ jobs:
       - name: Build and push image
         uses: docker/build-push-action@v6
         with:
-            context: .
-            push: true
-            target: deploy
-            tags: |
-              ${{ env.IMAGE_NAME }}
-              ${{ env.LATEST_IMAGE_NAME }}
-            build-args: |
-              PDM_BUILD_SCM_VERSION=${{ github.event.release.tag_name }}
+          context: .
+          push: true
+          target: deploy
+          tags: |
+            ${{ env.IMAGE_NAME }}
+            ${{ env.LATEST_IMAGE_NAME }}
+          build-args: |
+            PDM_BUILD_SCM_VERSION=${{ github.event.release.tag_name }}

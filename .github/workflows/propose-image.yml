@@ -12,7 +12,7 @@ on:
           - dev
           - prod
 env:
-  FILE_NAME: zombie-nomnom-api-${{github.event.inputs.env}}.yaml
+  FILE_NAME: espie-character-gen-${{github.event.inputs.env}}.yaml
 jobs:
   build-deployment-yaml:
     runs-on: ubuntu-latest
@@ -68,5 +68,5 @@ jobs:
           commit-message: Updating ${{ env.FILE_NAME }} to version ${{ github.event.inputs.version }}
           draft: false
           labels: automated,deployment
-          branch: update-zombie-nomnom-api-${{github.event.inputs.env}}-${{ github.event.inputs.version }}
-          title: "deployment(zombie-nomnom-api):  ${{ github.event.inputs.version }}"
+          branch: update-espie-character-gen-${{github.event.inputs.env}}-${{ github.event.inputs.version }}
+          title: "deployment(espie-character-gen):  ${{ github.event.inputs.version }}"

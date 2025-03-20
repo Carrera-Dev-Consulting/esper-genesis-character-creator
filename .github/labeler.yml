@@ -2,12 +2,12 @@
 routes:
   - all:
       - changed-files:
-          - any-glob-to-any-file: "zombie_nomnom_api/routes/**"
+          - any-glob-to-any-file: "espie_character_gen/routes/**"
 # whenever we make changes to the core lib we tag it
 core:
   - all:
       - changed-files:
-          - any-glob-to-any-file: "zombie_nomnom_api/**"
+          - any-glob-to-any-file: "espie_character_gen/**"
 # Whenever we updated any of the tests
 tests:
   - all:

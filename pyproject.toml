@@ -6,7 +6,7 @@ build-backend = "pdm.backend"
 [project]
 name = "espie_character_gen"
 dynamic = ["version"]
-description = "A character creation api for Esper Genesis that leverage jinja2 templates served through a fastapi api. This will allow you to mess around with cool stuff and be able to load up and handle multiple users."
+description = "A Character creation app that will allow you to mess around with the different things and work with the within the rules of the Esper Genesis Role Playing Game based on the Core Manual"
 readme = "README.md"
 requires-python = ">=3.10"
 
@@ -40,7 +40,7 @@ dependencies = [
     "pydantic-settings >= 2.6.1",
     "pyjwt >= 2.10.1",
     "fastapi-sessions>=0.3.2",
-    "python-multipart-0.0.20"
+    "python-multipart>=0.0.20",
 ]
 
 [project.urls]

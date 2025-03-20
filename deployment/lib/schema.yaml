@@ -3,8 +3,8 @@
 env: env
 image: latest
 port: 5000
-base_namespace: zombie-nomnom
-base_app_name: zombie-nomnom-api
+base_namespace: esper-character-creator
+base_app_name: esper-character-creator-app
 log_level: INFO
 replicas: 1
 cpu: 1

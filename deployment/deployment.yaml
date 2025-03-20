@@ -1,7 +1,7 @@
 #@ load("@ytt:data", "data")
 #@ app_name = "{}-{}".format(data.values.base_app_name, data.values.env)
 #@ namespace = "{}-{}".format(data.values.base_namespace, data.values.env)
-#@ image = "gxldcptrick/zombie-nomnom-api:{}".format(data.values.image)
+#@ image = "gxldcptrick/espie-character-gen:{}".format(data.values.image)
 #@ log_level = data.values.log_level
 #@ replicas = data.values.replicas
 #@ deployment_name = "{}-deployment".format(app_name)
@@ -43,7 +43,7 @@ spec:
             - name: LOG_FORMAT
               value: pretty
           entrypoint:
-            - "zombie-nomnom-api"
+            - "esper-character-gen"
             - "--port"
             -  #@ port
             - "--host"
