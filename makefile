@@ -44,3 +44,5 @@ package:
 .PHONY: ensure-resources
 ensure-resources:
 	docker compose up mongo -d || echo "Mongo is already running"
+start:
+	python -m espie_character_gen --port 8080

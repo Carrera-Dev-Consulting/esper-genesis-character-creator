@@ -1,24 +1,25 @@
+import os
 from fastapi import FastAPI, HTTPException, Request
 from importlib.metadata import version
 
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
 
-from .graphql_app import graphql_app
 from fastapi.middleware.cors import CORSMiddleware
-from zombie_nomnom_api import configs
-from zombie_nomnom_api.rest_app.authentication import (
+from fastapi.templating import Jinja2Templates
+from espie_character_gen import configs
+from espie_character_gen.rest_app.authentication import (
     get_verifier,
     token_auth_scheme,
 )
 
 
 try:
-    _version = version("zombie-nomnom-api")
+    _version = version("espie_character_gen")
 except:  # pragma: no cover
     _version = "dev"
 
 fastapi_app = FastAPI(
-    title="Zombie Nom Nom API",
+    title="Espie Character Gen API",
     version=_version,
 )
 
@@ -68,4 +69,38 @@ def get_me(request: Request):
     return getattr(request.state, "user", None)
 
 
-fastapi_app.mount("/", graphql_app)
+templates = Jinja2Templates(
+    directory=os.path.join(os.path.dirname(__file__), "templates")
+)
+
+
+def link(url: str, name: str):
+    return {"url": url, "name": name}
+
+
+LINKS = [
+    link("/", "Home"),
+    link("/about", "About"),
+    link("/contact", "Contact"),
+]
+
+
+def context(**kwargs):
+    return {
+        **kwargs,
+        "links": LINKS,
+    }
+
+
+@fastapi_app.get("/")
+def index(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="index.html",
+        context=context(name="Billy Ichiban"),
+    )
+
+
+@fastapi_app.get("/{path:path}")
+def catch_all(path: str):
+    return RedirectResponse(url="/", status_code=302)

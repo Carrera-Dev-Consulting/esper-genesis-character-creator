@@ -10,7 +10,7 @@ COPY pyproject.toml pyproject.toml
 
 RUN pip install .
 EXPOSE 5000
-ENTRYPOINT ["zombie-nomnom-api", "--port", "5000", "--host", "0.0.0.0"]
+ENTRYPOINT ["esper-character-gen", "--port", "5000", "--host", "0.0.0.0"]
 
 FROM deploy AS test
 

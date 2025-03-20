@@ -2,7 +2,7 @@ from functools import cache
 from fastapi.security import HTTPBearer
 import jwt
 from jwt.exceptions import PyJWKClientError, DecodeError
-from zombie_nomnom_api import configs
+from espie_character_gen import configs
 
 
 token_auth_scheme = HTTPBearer()
