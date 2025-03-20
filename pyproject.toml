@@ -39,7 +39,8 @@ dependencies = [
     "ariadne >= 0.23.0",
     "pydantic-settings >= 2.6.1",
     "pyjwt >= 2.10.1",
-    "fastapi-sessions>=0.3.2"
+    "fastapi-sessions>=0.3.2",
+    "python-multipart-0.0.20"
 ]
 
 [project.urls]

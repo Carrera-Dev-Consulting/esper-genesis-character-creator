@@ -18,6 +18,7 @@ class Configs(BaseSettings):
     oauth_domain: str = ""
     oauth_algorithms: str = ""
     oauth_audience: str = ""
+    secret_key: str = "SUPER FUCKIN SECRET DONT WORRY ABOUT IT BUDDY"
 
 
 configs = Configs()

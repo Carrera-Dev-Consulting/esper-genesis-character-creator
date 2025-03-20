@@ -1,0 +1,13 @@
+{% extends "base.html"  %}
+{% block title %}Index{% endblock %}
+{% block content %}
+    <div class="bg-gray-500 p-5 text-white m-5" enctype="multipart/form-data">
+        <form id="login-form" action="/login" method="post" class="h-full w-full m-2">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" class="border-1 ml-1 rounded-full p-2" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="border-1 ml-1 rounded-full p-2" required ><br><br>
+            <input type="submit" value="Login" class="border-1 rounded-full p-2">
+          </form>
+    </div>
+{% endblock %}
